@@ -70,12 +70,18 @@ where subjectID = 1;
 
 
 # 8, Viet Check Constraint de kiem tra do tuoi nhap vao trong bang Student yeu cau Age >15 va Age < 50
+alter table Students 
+add constraint check(Age>15 and Age <50);
 
 # 9, Loai bo tat ca quan he giua cac bang
-alter table classstudent, marks
-drop foreign key;
-ALTER TABLE Orders
-DROP FOREIGN KEY FK_PersonOrder;
+alter table classstudent
+drop foreign key studentID,
+drop foreign key classID ;
+
+alter table marks
+drop foreign key studentID,
+drop foreign key subjectID ;
+
 
 # 10, Xoa hoc vien co StudentID la 1
 delete from students 
